@@ -131,16 +131,22 @@
         }
         
         .logo {
-            font-family: 'Audiowide', sans-serif;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            animation: glow 3s ease-in-out infinite;
-        }
-        
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+       }
+        .logo svg {
+            height: 34px;
+       }
+
+        .logo text {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            letter-spacing: 1px;
+       }
+
+
         @keyframes glow {
             0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5)); }
             50% { filter: drop-shadow(0 0 20px rgba(176, 38, 255, 0.7)); }
@@ -738,7 +744,35 @@
     
     <!-- Navigation -->
     <nav class="container">
-        <div class="logo">&lt;TP/&gt;</div>
+        <div class="logo">
+            <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="tpGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#00f5ff"/>
+                        <stop offset="100%" stop-color="#b026ff"/>
+                    </linearGradient>
+                    <filter id="tpGlow">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <text x="0" y="28" font-size="24" fill="url(#tpGradient)" filter="url(#tpGlow)">
+                    &lt;TP
+                </text>
+
+                <!-- DevOps pipeline node -->
+                <circle cx="70" cy="20" r="3" fill="#00f5ff"/>
+
+                <text x="80" y="28" font-size="24" fill="url(#tpGradient)" filter="url(#tpGlow)">
+                    /&gt;
+                </text>
+            </svg>
+        </div>
+
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
