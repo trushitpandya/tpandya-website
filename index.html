@@ -443,13 +443,14 @@
         /* Experience Timeline */
         .timeline {
             position: relative;
-            padding-left: 3rem;
+            padding-left: 3.5rem;
+            --timeline-x: 8px;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 0;
+            left: var(--timeline-x);
             top: 0;
             height: 100%;
             width: 2px;
@@ -465,8 +466,9 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -3.5rem;
-            top: 5px;
+            left: var(--timeline-x);
+            transform: translateX(-50%);
+            top: 6px;
             width: 12px;
             height: 12px;
             background: var(--accent-cyan);
@@ -714,7 +716,7 @@
             }
             
             .timeline {
-                padding-left: 2rem;
+                padding-left: 3.5rem;
             }
             
             .timeline-item {
